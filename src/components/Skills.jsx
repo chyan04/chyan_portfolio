@@ -3,12 +3,12 @@ function Skills() {
     <section id="skills">
       <h2>Skills</h2>
 
-      <div className="skills-container">
-        <span className="skill">React</span>
-        <span className="skill">JavaScript</span>
-        <span className="skill">HTML</span>
-        <span className="skill">CSS</span>
-      </div>
+      <ul>
+        <li><strong>React</strong> - 컴포넌트 기반 UI 구성</li>
+        <li><strong>JavaScript</strong> - 기본 문법 및 이벤트 처리</li>
+        <li><strong>HTML/CSS</strong> - 웹 페이지 구조 및 스타일링</li>
+      </ul>
+
     </section>
   )
 }
