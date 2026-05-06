@@ -2,7 +2,7 @@ function Contact() {
   return (
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: example@email.com</p>
+      <p>Email: chyan024@gmail.com</p>
     </section>
   )
 }
