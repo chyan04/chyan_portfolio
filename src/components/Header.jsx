@@ -1,21 +1,16 @@
-// 상단 헤더 컴포넌트
 function Header() {
   return (
     <header className="header">
-    <div className="header-inner">
+      <div className="header-inner">
+        <a href="#" className="logo">chan.dev</a>
 
-        {/* 왼쪽 */}
-        <h1 className="logo">CHAN</h1>
-
-        {/* 오른쪽 */}
         <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+          <a href="#about">about</a>
+          <a href="#skills">skills</a>
+          <a href="#projects">projects</a>
+          <a href="#contact">contact</a>
         </nav>
-
-    </div>
+      </div>
     </header>
   )
 }

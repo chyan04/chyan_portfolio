@@ -1,186 +1,452 @@
 /* ============================= */
-/* 1. 기본 설정 서버 시작: npm run dev */
-/* ============================= */
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #f5f5f5, #eaeaea);
-  background-color: #f5f5f5;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* ============================= */
-/* 2. 전체 레이아웃 */
+/* Layout                        */
 /* ============================= */
 
 .container {
-  max-width: 900px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 40px 20px; /* 기존보다 여백 증가 */
+  padding: 0 24px;
+}
+
+main {
+  flex: 1;
+  padding: 64px 0 96px;
 }
 
 /* ============================= */
-/* 3. 헤더 */
+/* Header                        */
 /* ============================= */
 
 .header {
   position: sticky;
   top: 0;
-  width: 100%;
-  background: white;
-  border-bottom: 1px solid #ddd;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 입체감 */
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border);
 }
 
-/* 헤더 내부 정렬 (핵심) */
 .header-inner {
-  max-width: 900px;   /* container와 동일 */
-  margin: 0 auto;     /* 가운데 정렬 */
-  
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 16px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 15px 20px; /* 핵심: container와 동일한 패딩 */
 }
 
-/* 로고 */
 .logo {
-  font-size: 20px;
-  font-weight: bold;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-strong);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* 네비게이션 */
+.logo::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
 nav {
   display: flex;
-  gap: 12px; /* 버튼 간격 균일 */
+  gap: 4px;
 }
 
-/* 메뉴 버튼 */
 nav a {
-  padding: 8px 14px;
-  background-color: #007bff;
-  color: white;
-  border-radius: 6px;
-  font-size: 14px;
-  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
 }
 
-/* hover 효과 */
 nav a:hover {
-  background-color: #0056b3;
+  color: var(--text-strong);
+  background: var(--bg-card);
 }
-
 
 /* ============================= */
-/* 4. 섹션 */
+/* Section                       */
 /* ============================= */
 
 section {
-  background: white;
-  margin-bottom: 25px;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-
-  text-align: center; /* 전체 중앙 정렬 */
-  margin-bottom: 30px; /* 간격 확대 */
+  padding: 56px 0;
+  border-bottom: 1px solid var(--border);
 }
 
-/* 제목 */
-h2 {
-  margin-bottom: 15px;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
+section:last-child {
+  border-bottom: none;
 }
 
-
-/* ============================= */
-/* 5. About */
-/* ============================= */
-
-section p {
-  margin: 10px 0;
-  line-height: 1.6;
-}
-
-
-/* ============================= */
-/* 6. Skills */
-/* ============================= */
-
-.skills-container {
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
   display: flex;
-  justify-content: center; /* 완전 중앙 */
+  align-items: center;
+  gap: 8px;
+}
+
+.section-label::before {
+  content: '//';
+  opacity: 0.6;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-bottom: 32px;
+  letter-spacing: -0.03em;
+}
+
+/* ============================= */
+/* Hero / About                  */
+/* ============================= */
+
+.hero {
+  padding: 80px 0 56px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-greet {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.hero-name {
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--text-strong);
+  margin-bottom: 12px;
+}
+
+.hero-role {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.hero-role .accent {
+  color: var(--accent);
+}
+
+.hero-desc {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-strong);
+}
+
+.btn:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-elevated);
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0a0a0a;
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #0a0a0a;
+}
+
+/* About paragraphs */
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  color: var(--text);
+  max-width: 680px;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+.about-text strong {
+  color: var(--text-strong);
+  font-weight: 600;
+}
+
+/* ============================= */
+/* Skills                        */
+/* ============================= */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.skill {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skill:hover {
+  border-color: var(--accent-border);
+  background: var(--bg-elevated);
+  transform: translateY(-2px);
+}
+
+.skill-name {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.skill-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ============================= */
+/* Projects                      */
+/* ============================= */
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-elevated);
+  transform: translateY(-2px);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-strong);
+  letter-spacing: -0.01em;
+}
+
+.project-status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.project-status.planned {
+  background: rgba(161, 161, 170, 0.08);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+.project-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.project-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+}
+
+/* ============================= */
+/* Contact                       */
+/* ============================= */
+
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.contact-links {
+  display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.skill {
-  background: #007bff;
-  color: white;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 14px;
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-strong);
+  padding: 10px 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
 }
 
+.contact-link:hover {
+  border-color: var(--accent-border);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
 
-/* ============================= */
-/* 7. Projects */
-/* ============================= */
-
-.project-card {
-  border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 15px;
-
-  text-align: center;
-
+.contact-link .arrow {
   transition: transform 0.2s ease;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
+.contact-link:hover .arrow {
+  transform: translate(2px, -2px);
 }
 
-
 /* ============================= */
-/* 8. 버튼 */
+/* Footer                        */
 /* ============================= */
 
-a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 14px;
-  background-color: #007bff;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  text-align: center;
 }
 
-a:hover {
-  background-color: #0056b3;
+.footer p {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
 }
 
-
 /* ============================= */
-/* 9. 반응형 */
+/* Responsive                    */
 /* ============================= */
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .header-inner {
-    flex-direction: column; /* 모바일에서 세로 */
-    gap: 10px;
+    padding: 14px 20px;
   }
 
-  nav {
-    justify-content: center;
-    flex-wrap: wrap;
+  nav a {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  main {
+    padding: 32px 0 64px;
+  }
+
+  section {
+    padding: 40px 0;
+  }
+
+  .hero {
+    padding: 56px 0 40px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-card {
+    padding: 24px;
   }
 }
