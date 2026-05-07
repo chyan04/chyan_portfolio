@@ -23,11 +23,15 @@ import {
 // ========================================
 // 아래 화살표 아이콘
 // ========================================
-import { HiArrowDown } from 'react-icons/hi'
-
+// import { HiArrowDown } from 'react-icons/hi'
+import { useState } from 'react'
 
 
 function App() {
+  /* ========================================
+    복사 상태 관리
+  ======================================== */
+  const [copiedText, setCopiedText] = useState("")
 
   // ========================================
   // 마우스 Glow 효과
@@ -84,33 +88,36 @@ function App() {
       <div className="background-glow"></div>
 
 
-      {/* ========================================
-          Navbar
-          ======================================== */}
-      <nav className="navbar">
+        {/* ========================================
+          상단 네비게이션 바
+        ======================================== */}
+        <nav className="navbar">
 
-        {/* 로고 */}
-        <div className="logo">
+          <div className="nav-container">
 
-          CHYAN
+            {/* 로고 */}
+            <a href="#" className="logo">
 
-        </div>
+              CHYAN
 
+            </a>
 
-        {/* 메뉴 링크 */}
-        <div className="nav-links">
+            {/* 메뉴 */}
+            <div className="nav-links">
 
-          <a href="#about">About</a>
+              <a href="#about">About</a>
 
-          <a href="#skills">Skills</a>
+              <a href="#skills">Skills</a>
 
-          <a href="#projects">Projects</a>
+              <a href="#projects">Projects</a>
 
-          <a href="#contact">Contact</a>
+              <a href="#contact">Contact</a>
 
-        </div>
+            </div>
 
-      </nav>
+          </div>
+
+        </nav>
 
 
 
@@ -125,7 +132,7 @@ function App() {
           {/* 작은 소개 문장 */}
           <p className="hero-subtitle">
 
-            FRONTEND DEVELOPER
+            GAME DEVELOPER
 
           </p>
 
@@ -133,16 +140,15 @@ function App() {
           {/* 메인 제목 */}
           <h1>
 
-            Building
+            Greetings
 
             <br />
 
-            Modern
-            <span className="highlight"> Web</span>
+            CHYAN 
+
+            <span className="highlight"> PORTFOLIO</span>  
 
             <br />
-
-            Interfaces
 
           </h1>
 
@@ -150,15 +156,15 @@ function App() {
           {/* 설명 */}
           <p className="hero-description">
 
-            React 기반 프론트엔드 개발을 학습하며
-
-            사용자 경험 중심의 UI와
-            인터랙션을 구현하고 있습니다.
+            안녕하세요, 게임 기획 및 개발자 안홍찬 입니다.
 
             <br />
 
-            다양한 프로젝트를 통해
-            실전 경험을 확장하고 있습니다.
+            최고의 재미와 훌륭한 게임을 만들기 위해 항상 고민하고 행동합니다.
+
+            <br />
+
+            기획 설계 개발 운영까지 직접 배우고 습득하고 활용합니다.
 
           </p>
 
@@ -218,31 +224,290 @@ function App() {
           ABOUT 영역
           ======================================== */}
       <section
-        className="section fade-section"
         id="about"
+        className="section fade-section"
       >
 
         <h2>About</h2>
 
-        <div className="card">
+        <div className="about-grid">
 
-          <p>
-            안녕하세요.
-            프론트엔드 개발자를 목표로
-            학습 중인 챤입니다.
-          </p>
+          {/* ========================================
+              Email 카드
+          ======================================== */}
+          <div
+            className="about-card"
 
-          <p>
-            React와 JavaScript를 중심으로
-            컴포넌트 구조와 사용자 인터페이스를
-            공부하고 있습니다.
-          </p>
+            onClick={() => {
 
-          <p>
-            현재는 포트폴리오 제작과
-            웹 프로젝트를 통해
-            실전 경험을 쌓고 있습니다.
-          </p>
+              navigator.clipboard.writeText(
+                "chyan024@gmail.com"
+              )
+
+              /* =========================
+                1단계
+                기존 텍스트 fade out
+              ========================= */
+              setCopiedText("email-hide")
+
+
+              setTimeout(() => {
+
+                /* =========================
+                  2단계
+                  복사 메시지로 변경
+                ========================= */
+                setCopiedText("email-show")
+
+              }, 250)
+
+
+              setTimeout(() => {
+
+                /* =========================
+                  3단계
+                  복사 메시지 fade out
+                ========================= */
+                setCopiedText("email-hide-again")
+
+              }, 1700)
+
+
+              setTimeout(() => {
+
+                /* =========================
+                  4단계
+                  원래 텍스트 복구
+                ========================= */
+                setCopiedText("")
+
+              }, 1950)
+            }}
+          >
+
+            <h3>Email</h3>
+
+            <p
+              className={`
+                about-text
+
+                ${
+                  copiedText === "email-hide"
+                  || copiedText === "email-hide-again"
+
+                  ? "animate"
+
+                  : ""
+                }
+              `}
+            >
+
+              {
+                copiedText === "email-show"
+
+                ? "이메일이 복사되었습니다."
+
+                : "chyan024@gmail.com"
+              }
+
+            </p>
+
+          </div>
+
+
+
+          {/* ========================================
+              GitHub 카드
+          ======================================== */}
+          <div
+            className="about-card"
+
+            onClick={() => {
+
+              navigator.clipboard.writeText(
+                "github.com/chyan04"
+              )
+
+              setCopiedText("github-animate")
+
+              setTimeout(() => {
+
+                setCopiedText("github")
+
+              }, 200)
+
+              setTimeout(() => {
+
+                setCopiedText("github-hide")
+
+                setTimeout(() => {
+
+                  setCopiedText("")
+
+                }, 200)
+
+              }, 1500)
+            }}
+          >
+
+            <h3>GitHub</h3>
+
+            <p
+              className={`
+                about-text
+
+                ${
+                  copiedText === "github-animate"
+                  || copiedText === "github-hide"
+
+                  ? "animate"
+
+                  : ""
+                }
+              `}
+            >
+
+              {
+                copiedText === "github"
+
+                ? "GitHub 주소가 복사되었습니다."
+
+                : "github.com/chyan04"
+              }
+
+            </p>
+
+          </div>
+
+
+
+          {/* ========================================
+              Blog 카드
+          ======================================== */}
+          <div
+            className="about-card"
+
+            onClick={() => {
+
+              navigator.clipboard.writeText(
+                "velog.io/@example"
+              )
+
+              setCopiedText("blog-animate")
+
+              setTimeout(() => {
+
+                setCopiedText("blog")
+
+              }, 200)
+
+              setTimeout(() => {
+
+                setCopiedText("blog-hide")
+
+                setTimeout(() => {
+
+                  setCopiedText("")
+
+                }, 200)
+
+              }, 1500)
+            }}
+          >
+
+            <h3>Blog</h3>
+
+            <p
+              className={`
+                about-text
+
+                ${
+                  copiedText === "blog-animate"
+                  || copiedText === "blog-hide"
+
+                  ? "animate"
+
+                  : ""
+                }
+              `}
+            >
+
+              {
+                copiedText === "blog"
+
+                ? "블로그 주소가 복사되었습니다."
+
+                : "velog.io/@example"
+              }
+
+            </p>
+
+          </div>
+
+
+
+          {/* ========================================
+              Location 카드
+          ======================================== */}
+          <div
+            className="about-card"
+
+            onClick={() => {
+
+              navigator.clipboard.writeText(
+                "South Korea"
+              )
+
+              setCopiedText("location-animate")
+
+              setTimeout(() => {
+
+                setCopiedText("location")
+
+              }, 200)
+
+              setTimeout(() => {
+
+                setCopiedText("location-hide")
+
+                setTimeout(() => {
+
+                  setCopiedText("")
+
+                }, 200)
+
+              }, 1500)
+            }}
+          >
+
+            <h3>Location</h3>
+
+            <p
+              className={`
+                about-text
+
+                ${
+                  copiedText === "location-animate"
+                  || copiedText === "location-hide"
+
+                  ? "animate"
+
+                  : ""
+                }
+              `}
+            >
+
+              {
+                copiedText === "location"
+
+                ? "위치가 복사되었습니다."
+
+                : "South Korea"
+              }
+
+            </p>
+
+          </div>
 
         </div>
 
@@ -288,6 +553,10 @@ function App() {
             Vite
           </div>
 
+          <div className="skill-card">
+            Unity
+          </div>
+
         </div>
 
       </section>
@@ -318,8 +587,7 @@ function App() {
 
             <p>
 
-              React와 Vite를 기반으로 제작한
-              개인 포트폴리오 웹사이트입니다.
+              React와 Vite를 기반으로 제작한 개인 포트폴리오 웹사이트입니다.
 
             </p>
 
@@ -345,25 +613,23 @@ function App() {
             {/* 프로젝트 이미지 */}
             <div className="project-image"></div>
 
-            <h3>Upcoming Project</h3>
+            <h3>Weapon Challenger</h3>
 
             <p>
-
-              추후 Todo App 및
-              API 기반 프로젝트를
-              추가할 예정입니다.
-
+              팀원의 협업을 통해 개발 및 제작한 2D 플랫포머 게임 입니다.
             </p>
 
 
             {/* 기술 태그 */}
             <div className="project-tags">
 
-              <span>JavaScript</span>
+              <span>Unity 6</span>
 
-              <span>API</span>
+              <span>2D</span>
 
-              <span>UI</span>
+              <span>Platform</span>
+
+              <span>Gun Action</span>
 
             </div>
 
@@ -387,7 +653,7 @@ function App() {
 
         <div className="card">
 
-          <p>Email: example@email.com</p>
+          <p>Email: chyan024@email.com</p>
 
           <p>GitHub: github.com/chyan04</p>
 
@@ -400,11 +666,11 @@ function App() {
       {/* ========================================
           하단 스크롤 아이콘
           ======================================== */}
-      <div className="scroll-icon">
+      {/* <div className="scroll-icon">
 
         <HiArrowDown />
 
-      </div>
+      </div> */}
 
     </div>
   )

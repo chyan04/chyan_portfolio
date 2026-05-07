@@ -1,12 +1,12 @@
 /* ========================================
-   Pretendard 폰트 적용
-   ======================================== */
+   Pretendard 폰트
+======================================== */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 
 /* ========================================
-   전체 기본 설정
-   ======================================== */
+   기본 설정
+======================================== */
 * {
 
   margin: 0;
@@ -18,13 +18,13 @@
 
 
 /* ========================================
-   사이트 기본 색상 변수
-   ======================================== */
+   색상 변수
+======================================== */
 :root {
 
   --bg-color: #050816;
 
-  --card-color: #111827;
+  --card-color: rgba(17, 24, 39, 0.72);
 
   --main-color: #00FF00;
 
@@ -35,23 +35,8 @@
 
 
 /* ========================================
-   body 기본 스타일
-   ======================================== */
-body {
-
-  background-color: var(--bg-color);
-
-  color: var(--text-color);
-
-  font-family: 'Pretendard', sans-serif;
-
-  overflow-x: hidden;
-}
-
-
-/* ========================================
-   부드러운 스크롤
-   ======================================== */
+   html
+======================================== */
 html {
 
   scroll-behavior: smooth;
@@ -59,8 +44,23 @@ html {
 
 
 /* ========================================
-   전체 컨테이너
-   ======================================== */
+   body
+======================================== */
+body {
+
+  font-family: 'Pretendard', sans-serif;
+
+  background: var(--bg-color);
+
+  color: var(--text-color);
+
+  overflow-x: hidden;
+}
+
+
+/* ========================================
+   전체 앱
+======================================== */
 .container {
 
   width: 90%;
@@ -76,8 +76,27 @@ html {
 
 
 /* ========================================
-   배경 Glow 효과
-   ======================================== */
+   Grid 배경
+======================================== */
+.grid-background {
+
+  position: fixed;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+
+  z-index: -3;
+}
+
+
+/* ========================================
+   배경 Glow
+======================================== */
 .background-glow {
 
   position: fixed;
@@ -96,449 +115,128 @@ html {
 
   filter: blur(120px);
 
-  z-index: 1;
-}
-
-
-/* ========================================
-   HERO 영역
-   ======================================== */
-.hero {
-
-  min-height: 100vh;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 60px;
-}
-
-
-/* 왼쪽 소개 영역 */
-.hero-left {
-
-  flex: 1;
-}
-
-
-/* 작은 소개 문장 */
-.hero-subtitle {
-
-  color: var(--main-color);
-
-  letter-spacing: 4px;
-
-  margin-bottom: 24px;
-
-  font-size: 14px;
-}
-
-
-/* 메인 제목 */
-.hero h1 {
-
-  font-size: 84px;
-
-  line-height: 1.1;
-
-  margin-bottom: 32px;
-}
-
-
-/* 강조 색상 */
-.highlight {
-
-  color: var(--main-color);
-}
-
-
-/* 자기소개 */
-.hero-description {
-
-  color: var(--sub-text-color);
-
-  line-height: 1.8;
-
-  max-width: 650px;
-
-  margin-bottom: 40px;
-}
-
-
-/* 버튼 영역 */
-.hero-buttons {
-
-  display: flex;
-
-  gap: 16px;
-}
-
-
-/* 공통 버튼 */
-.hero-buttons a {
-
-  text-decoration: none;
-
-  padding: 16px 28px;
-
-  border-radius: 12px;
-
-  transition: 0.3s;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-}
-
-
-/* 메인 버튼 */
-.primary-button {
-
-  background-color: var(--main-color);
-
-  color: black;
-
-  font-weight: bold;
-}
-
-
-/* 메인 버튼 hover */
-.primary-button:hover {
-
-  transform: translateY(-4px);
-
-  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.3);
-}
-
-
-/* 보조 버튼 */
-.secondary-button {
-
-  border: 1px solid #334155;
-
-  color: white;
-}
-
-
-/* 보조 버튼 hover */
-.secondary-button:hover {
-
-  border-color: var(--main-color);
-
-  color: var(--main-color);
-}
-
-
-/* ========================================
-   오른쪽 React 영역
-   ======================================== */
-.hero-right {
-
-  flex: 1;
-
-  display: flex;
-
-  justify-content: center;
-}
-
-
-/* React 원형 */
-.react-circle {
-
-  width: 320px;
-
-  height: 320px;
-
-  border-radius: 50%;
-
-  background: rgba(0, 255, 0, 0.05);
-
-  border: 1px solid rgba(0, 255, 0, 0.2);
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  box-shadow: 0 0 80px rgba(0, 255, 0, 0.15);
-}
-
-
-/* React 아이콘 */
-.react-icon {
-
-  font-size: 140px;
-
-  color: var(--main-color);
-}
-
-
-/* ========================================
-   공통 Section
-   ======================================== */
-.section {
-
-  margin-bottom: 140px;
-}
-
-
-/* Section 제목 */
-.section h2 {
-
-  font-size: 42px;
-
-  margin-bottom: 32px;
-
-  color: var(--main-color);
-}
-
-
-/* 공통 카드 */
-.card {
-
-  background-color: var(--card-color);
-
-  border: 1px solid #1e293b;
-
-  padding: 36px;
-
-  border-radius: 20px;
-
-  line-height: 1.8;
-}
-
-
-/* 카드 문장 */
-.card p {
-
-  color: var(--sub-text-color);
-
-  margin-bottom: 16px;
-}
-
-
-/* ========================================
-   기술 스택 Grid
-   ======================================== */
-.skills-grid {
-
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-
-  gap: 20px;
-}
-
-
-/* 기술 카드 */
-.skill-card {
-
-  background-color: var(--card-color);
-
-  padding: 24px;
-
-  border-radius: 18px;
-
-  border: 1px solid #1e293b;
-
-  transition: 0.3s;
-
-  text-align: center;
-}
-
-
-/* 기술 카드 hover */
-.skill-card:hover {
-
-  transform: translateY(-6px);
-
-  border-color: var(--main-color);
-
-  color: var(--main-color);
-}
-
-
-/* ========================================
-   프로젝트 Grid
-   ======================================== */
-.project-grid {
-
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-  gap: 24px;
-}
-
-
-/* 프로젝트 카드 */
-.project-card {
-
-  background-color: var(--card-color);
-
-  border: 1px solid #1e293b;
-
-  padding: 32px;
-
-  border-radius: 20px;
-
-  transition: 0.3s;
-}
-
-
-/* 프로젝트 카드 제목 */
-.project-card h3 {
-
-  margin-bottom: 20px;
-}
-
-
-/* 프로젝트 카드 설명 */
-.project-card p {
-
-  color: var(--sub-text-color);
-
-  line-height: 1.7;
-}
-
-
-/* 프로젝트 카드 hover */
-.project-card:hover {
-
-  transform: translateY(-6px);
-
-  border-color: var(--main-color);
-
-  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.12);
-}
-
-
-/* ========================================
-   하단 화살표 아이콘
-   ======================================== */
-.scroll-icon {
-
-  text-align: center;
-
-  font-size: 28px;
-
-  color: var(--main-color);
-
-  margin-bottom: 40px;
-}
-
-
-/* ========================================
-   모바일 반응형
-   ======================================== */
-@media (max-width: 900px) {
-
-  .hero {
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    text-align: center;
-  }
-
-  .hero h1 {
-
-    font-size: 58px;
-  }
-
-  .hero-description {
-
-    margin: 0 auto 40px;
-  }
-
-  .hero-buttons {
-
-    justify-content: center;
-  }
-
-  .react-circle {
-
-    width: 240px;
-
-    height: 240px;
-  }
-
-  .react-icon {
-
-    font-size: 100px;
-  }
-}
-
-/* ========================================
-   Grid 배경 효과
-   ======================================== */
-.grid-background {
-
-  position: fixed;
-
-  width: 100%;
-
-  height: 100%;
-
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-
-  background-size: 40px 40px;
-
   z-index: -2;
 }
 
 
 /* ========================================
+   마우스 Glow
+======================================== */
+.mouse-glow {
+
+  position: fixed;
+
+  width: 300px;
+
+  height: 300px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,255,0,0.12),
+      transparent 70%
+    );
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+
+  z-index: -1;
+}
+
+
+/* ========================================
    Navbar
-   ======================================== */
+======================================== */
 .navbar {
 
-  position: sticky;
+  position: fixed;
 
   top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 80px;
+
+  z-index: 9999;
+
+  background:
+    rgba(5, 8, 22, 0.72);
+
+  backdrop-filter: blur(16px);
+
+  -webkit-backdrop-filter: blur(16px);
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.06);
+}
+
+
+/* ========================================
+   Navbar 내부
+======================================== */
+.nav-container {
+
+  width: 90%;
+
+  max-width: 1200px;
+
+  height: 100%;
+
+  margin: 0 auto;
 
   display: flex;
 
   justify-content: space-between;
 
   align-items: center;
-
-  padding: 24px 0;
-
-  backdrop-filter: blur(10px);
-
-  z-index: 100;
 }
 
 
-/* 로고 */
+/* ========================================
+   로고
+======================================== */
 .logo {
 
-  font-size: 24px;
+  text-decoration: none;
 
-  font-weight: bold;
+  color: white;
+
+  font-size: 1.5rem;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  transition: 0.3s ease;
+}
+
+
+/* hover */
+.logo:hover {
 
   color: var(--main-color);
 
-  letter-spacing: 3px;
+  text-shadow:
+    0 0 10px #00FF00,
+    0 0 20px #00FF00;
+
+  transform: scale(1.05);
 }
 
 
-/* 메뉴 영역 */
+/* ========================================
+   메뉴
+======================================== */
 .nav-links {
 
   display: flex;
 
-  gap: 28px;
+  gap: 36px;
 }
 
 
@@ -549,140 +247,81 @@ html {
 
   text-decoration: none;
 
-  transition: 0.3s;
+  position: relative;
+
+  transition: 0.3s ease;
 }
 
 
-/* 메뉴 hover */
+/* hover */
 .nav-links a:hover {
 
   color: var(--main-color);
 }
 
 
-/* ========================================
-   Section 등장 느낌
-   ======================================== */
-.fade-section {
+/* 밑줄 */
+.nav-links a::after {
 
-  animation: fadeUp 1s ease;
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -6px;
+
+  width: 0%;
+
+  height: 2px;
+
+  background: var(--main-color);
+
+  transition: 0.3s ease;
 }
 
 
-/* 등장 애니메이션 */
-@keyframes fadeUp {
+.nav-links a:hover::after {
 
-  from {
-
-    opacity: 0;
-
-    transform: translateY(40px);
-  }
-
-  to {
-
-    opacity: 1;
-
-    transform: translateY(0);
-  }
-}
-
-
-/* ========================================
-   Hero 제목 Glow 효과
-   ======================================== */
-.hero h1 {
-
-  text-shadow:
-    0 0 10px rgba(0,255,0,0.2),
-    0 0 30px rgba(0,255,0,0.1);
+  width: 100%;
 }
 
 
 /* ========================================
-   카드 hover 강화
-   ======================================== */
-.card:hover,
-.project-card:hover,
-.skill-card:hover {
+   Hero
+======================================== */
+.hero {
 
-  box-shadow:
-    0 0 20px rgba(0,255,0,0.1),
-    0 0 40px rgba(0,255,0,0.05);
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 80px;
+
+  padding-top: 120px;
+
+  position: relative;
+
+  z-index: 2;
 }
 
 
 /* ========================================
-   React 아이콘 회전 애니메이션
-   ======================================== */
-.react-icon {
-
-  animation: rotateReact 12s linear infinite;
-}
-
-
-/* 회전 애니메이션 */
-@keyframes rotateReact {
-
-  from {
-
-    transform: rotate(0deg);
-  }
-
-  to {
-
-    transform: rotate(360deg);
-  }
-}
-
-
-/* ========================================
-   모바일 Navbar
-   ======================================== */
-@media (max-width: 768px) {
-
-  .navbar {
-
-    flex-direction: column;
-
-    gap: 20px;
-  }
-
-  .nav-links {
-
-    gap: 16px;
-
-    flex-wrap: wrap;
-
-    justify-content: center;
-  }
-}
-/* ========================================
-   Hero 버튼 아이콘
-   ======================================== */
-.primary-button svg {
-
-  transition: 0.3s;
-}
-
-
-/* 버튼 hover 시 화살표 이동 */
-.primary-button:hover svg {
-
-  transform: translateX(4px);
-}
-
-
-/* ========================================
-   Hero 영역 부드러운 등장
-   ======================================== */
+   Hero 왼쪽
+======================================== */
 .hero-left {
+
+  flex: 1;
 
   animation: heroFade 1.2s ease;
 }
 
 
-/* Hero 등장 애니메이션 */
+/* Hero 애니메이션 */
 @keyframes heroFade {
 
   from {
@@ -701,10 +340,173 @@ html {
 }
 
 
+/* 작은 텍스트 */
+.hero-subtitle {
+
+  color: var(--main-color);
+
+  letter-spacing: 4px;
+
+  margin-bottom: 24px;
+
+  font-size: 14px;
+}
+
+
+/* Hero 제목 */
+.hero h1 {
+
+  font-size: 92px;
+
+  line-height: 1.05;
+
+  letter-spacing: -4px;
+
+  margin-bottom: 32px;
+
+  background:
+    linear-gradient(
+      to right,
+      white,
+      #00FF00
+    );
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 0 20px rgba(0,255,0,0.1);
+}
+
+
+/* 강조 */
+.highlight {
+
+  color: var(--main-color);
+}
+
+
+/* 설명 */
+.hero-description {
+
+  color: var(--sub-text-color);
+
+  line-height: 1.9;
+
+  max-width: 650px;
+
+  font-size: 18px;
+
+  margin-bottom: 40px;
+}
+
+
 /* ========================================
-   React Circle floating 효과
-   ======================================== */
+   버튼 영역
+======================================== */
+.hero-buttons {
+
+  display: flex;
+
+  gap: 18px;
+}
+
+
+/* 공통 버튼 */
+.hero-buttons a {
+
+  text-decoration: none;
+
+  padding: 16px 28px;
+
+  border-radius: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  transition: 0.3s ease;
+}
+
+
+/* 메인 버튼 */
+.primary-button {
+
+  background: var(--main-color);
+
+  color: black;
+
+  font-weight: 700;
+}
+
+
+/* hover */
+.primary-button:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 10px 30px rgba(0,255,0,0.25);
+}
+
+
+/* 보조 버튼 */
+.secondary-button {
+
+  border: 1px solid #334155;
+
+  color: white;
+}
+
+
+/* hover */
+.secondary-button:hover {
+
+  border-color: var(--main-color);
+
+  color: var(--main-color);
+}
+
+
+/* ========================================
+   Hero 오른쪽
+======================================== */
+.hero-right {
+
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+
+/* 원형 */
 .react-circle {
+
+  width: 320px;
+
+  height: 320px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(0,255,0,0.05);
+
+  border:
+    1px solid rgba(0,255,0,0.2);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  box-shadow:
+    0 0 80px rgba(0,255,0,0.15);
 
   animation:
     floating 4s ease-in-out infinite;
@@ -731,16 +533,194 @@ html {
 }
 
 
+/* React 아이콘 */
+.react-icon {
+
+  font-size: 140px;
+
+  color: var(--main-color);
+
+  animation:
+    rotateReact 12s linear infinite;
+}
+
+
+/* 회전 */
+@keyframes rotateReact {
+
+  from {
+
+    transform: rotate(0deg);
+  }
+
+  to {
+
+    transform: rotate(360deg);
+  }
+}
+
+
 /* ========================================
-   프로젝트 이미지 영역
-   ======================================== */
+   공통 Section
+======================================== */
+.section {
+
+  margin-bottom: 140px;
+}
+
+
+/* 제목 */
+.section h2 {
+
+  font-size: 42px;
+
+  margin-bottom: 32px;
+
+  color: var(--main-color);
+}
+
+
+/* 공통 카드 */
+.card {
+
+  background: var(--card-color);
+
+  border: 1px solid #1e293b;
+
+  border-radius: 24px;
+
+  padding: 36px;
+
+  line-height: 1.9;
+
+  backdrop-filter: blur(12px);
+
+  transition: 0.3s ease;
+}
+
+
+/* hover */
+.card:hover {
+
+  border-color:
+    rgba(0,255,0,0.5);
+
+  box-shadow:
+    0 0 30px rgba(0,255,0,0.08);
+}
+
+
+/* 카드 문장 */
+.card p {
+
+  color: var(--sub-text-color);
+
+  margin-bottom: 16px;
+}
+
+
+/* ========================================
+   기술 Grid
+======================================== */
+.skills-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(180px, 1fr));
+
+  gap: 20px;
+}
+
+
+/* 기술 카드 */
+.skill-card {
+
+  background: var(--card-color);
+
+  border: 1px solid #1e293b;
+
+  border-radius: 20px;
+
+  padding: 24px;
+
+  text-align: center;
+
+  backdrop-filter: blur(12px);
+
+  transition: 0.3s ease;
+}
+
+
+/* hover */
+.skill-card:hover {
+
+  transform:
+    translateY(-8px)
+    scale(1.03);
+
+  border-color: var(--main-color);
+
+  color: var(--main-color);
+
+  box-shadow:
+    0 0 30px rgba(0,255,0,0.08);
+}
+
+
+/* ========================================
+   프로젝트 Grid
+======================================== */
+.project-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 28px;
+}
+
+
+/* 프로젝트 카드 */
+.project-card {
+
+  background: var(--card-color);
+
+  border: 1px solid #1e293b;
+
+  border-radius: 24px;
+
+  padding: 32px;
+
+  backdrop-filter: blur(12px);
+
+  transition: 0.3s ease;
+}
+
+
+/* hover */
+.project-card:hover {
+
+  transform:
+    translateY(-10px)
+    scale(1.02);
+
+  border-color: var(--main-color);
+
+  box-shadow:
+    0 0 40px rgba(0,255,0,0.08);
+}
+
+
+/* 프로젝트 이미지 */
 .project-image {
 
   width: 100%;
 
   height: 180px;
 
-  border-radius: 16px;
+  border-radius: 18px;
 
   margin-bottom: 24px;
 
@@ -748,38 +728,55 @@ html {
     linear-gradient(
       135deg,
       rgba(0,255,0,0.2),
-      rgba(0,255,0,0.02)
+      rgba(0,255,0,0.03)
     );
 
-  border: 1px solid rgba(0,255,0,0.1);
+  border:
+    1px solid rgba(0,255,0,0.1);
 }
 
 
-/* ========================================
-   프로젝트 기술 태그
-   ======================================== */
+/* 제목 */
+.project-card h3 {
+
+  margin-bottom: 18px;
+}
+
+
+/* 설명 */
+.project-card p {
+
+  color: var(--sub-text-color);
+
+  line-height: 1.8;
+}
+
+
+/* 태그 */
 .project-tags {
 
   display: flex;
 
   gap: 10px;
 
-  margin-top: 24px;
-
   flex-wrap: wrap;
+
+  margin-top: 24px;
 }
 
 
-/* 태그 스타일 */
+/* 태그 */
 .project-tags span {
 
-  background: rgba(255,255,255,0.05);
+  background:
+    rgba(255,255,255,0.05);
 
-  border: 1px solid rgba(255,255,255,0.08);
-
-  padding: 8px 14px;
+  border:
+    1px solid rgba(255,255,255,0.08);
 
   border-radius: 999px;
+
+  padding: 8px 14px;
 
   font-size: 14px;
 
@@ -788,92 +785,219 @@ html {
 
 
 /* ========================================
-   Hero 제목 Gradient 효과
-   ======================================== */
-.hero h1 {
+   fade animation
+======================================== */
+.fade-section {
+
+  animation:
+    fadeUp 1s ease;
+}
+
+
+/* 등장 */
+@keyframes fadeUp {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(40px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* ========================================
+   모바일 반응형
+======================================== */
+@media (max-width: 900px) {
+
+  .hero {
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 60px;
+  }
+
+  .hero h1 {
+
+    font-size: 64px;
+  }
+
+  .hero-description {
+
+    margin:
+      0 auto 40px;
+  }
+
+  .hero-buttons {
+
+    justify-content: center;
+  }
+
+  .react-circle {
+
+    width: 240px;
+
+    height: 240px;
+  }
+
+  .react-icon {
+
+    font-size: 100px;
+  }
+}
+
+
+/* ========================================
+   모바일 navbar
+======================================== */
+@media (max-width: 768px) {
+
+  .nav-container {
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    padding-top: 12px;
+  }
+
+  .nav-links {
+
+    gap: 16px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+
+  .navbar {
+
+    height: auto;
+
+    padding-bottom: 12px;
+  }
+}
+/* ========================================
+   About Grid
+======================================== */
+.about-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(240px, 1fr));
+
+  gap: 24px;
+
+  margin-top: 40px;
+}
+
+
+/* ========================================
+   About 카드
+======================================== */
+.about-card {
 
   background:
-    linear-gradient(
-      to right,
-      white,
-      #00FF00
-    );
+    rgba(255,255,255,0.03);
 
-  -webkit-background-clip: text;
+  border:
+    1px solid rgba(255,255,255,0.08);
 
-  -webkit-text-fill-color: transparent;
+  border-radius: 24px;
+
+  padding: 32px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  backdrop-filter: blur(12px);
+
+  position: relative;
+
+  overflow: hidden;
 }
 
 
-/* ========================================
-   카드 hover 강화
-   ======================================== */
-.project-card:hover {
-
-  transform:
-    translateY(-10px)
-    scale(1.02);
-
-  box-shadow:
-    0 0 30px rgba(0,255,0,0.12),
-    0 0 60px rgba(0,255,0,0.06);
-}
-
-
-/* ========================================
-   Skill 카드 hover 강화
-   ======================================== */
-.skill-card:hover {
+/* hover */
+.about-card:hover {
 
   transform:
     translateY(-8px)
-    scale(1.03);
+    scale(1.02);
+
+  border-color: #00FF00;
+
+  box-shadow:
+    0 0 30px rgba(0,255,0,0.15);
 }
 
 
-/* ========================================
-   Navbar blur 강화
-   ======================================== */
-.navbar {
+/* hover 배경 */
+.about-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
 
   background:
-    rgba(5,8,22,0.5);
-
-  border-bottom:
-    1px solid rgba(255,255,255,0.05);
-}
-/* ========================================
-   마우스 Glow 효과
-   ======================================== */
-.mouse-glow {
-
-  position: fixed;
-
-  width: 300px;
-
-  height: 300px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(0,255,0,0.12),
-      transparent 70%
+    linear-gradient(
+      135deg,
+      rgba(0,255,0,0.08),
+      transparent
     );
 
-  border-radius: 50%;
+  opacity: 0;
 
-  pointer-events: none;
-
-  transform: translate(-50%, -50%);
-
-  z-index: 0;
+  transition: 0.3s ease;
 }
 
 
-/* ========================================
-   Hero 영역 강화
-   ======================================== */
-.hero {
+/* hover 시 등장 */
+.about-card:hover::before {
+
+  opacity: 1;
+}
+
+
+/* 제목 */
+.about-card h3 {
+
+  font-size: 1.2rem;
+
+  margin-bottom: 16px;
+
+  color: #00FF00;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* 설명 */
+.about-card p {
+
+  color: #cbd5e1;
+
+  line-height: 1.8;
 
   position: relative;
 
@@ -882,90 +1006,24 @@ html {
 
 
 /* ========================================
-   Hero 제목 강화
-   ======================================== */
-.hero h1 {
-
-  font-size: 96px;
-
-  font-weight: 800;
-
-  letter-spacing: -3px;
-}
-
-
-/* ========================================
-   Hero 설명 강화
-   ======================================== */
-.hero-description {
-
-  font-size: 18px;
-}
-
-
-/* ========================================
-   카드 Blur 효과
-   ======================================== */
-.card,
-.project-card,
-.skill-card {
-
-  backdrop-filter: blur(12px);
-
-  background:
-    rgba(17,24,39,0.7);
-}
-
-
-/* ========================================
-   카드 hover 강화
-   ======================================== */
-.card:hover,
-.project-card:hover,
-.skill-card:hover {
-
-  border-color: rgba(0,255,0,0.5);
-}
-
-
-/* ========================================
-   Navbar 고급화
-   ======================================== */
-.navbar {
-
-  backdrop-filter: blur(16px);
-
-  background:
-    rgba(5,8,22,0.65);
-}
-
-
-/* ========================================
-   부드러운 transition
-   ======================================== */
-* {
+   텍스트 애니메이션
+======================================== */
+.about-text {
 
   transition:
-    background 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease;
+    opacity 0.35s ease,
+    transform 0.35s ease;
+
+  opacity: 1;
+
+  transform: translateY(0px);
 }
 
 
-/* ========================================
-   모바일 Hero 크기 조정
-   ======================================== */
-@media (max-width: 768px) {
+/* fade */
+.about-text.animate {
 
-  .hero h1 {
+  opacity: 0;
 
-    font-size: 64px;
-  }
-
-  .mouse-glow {
-
-    width: 180px;
-
-    height: 180px;
-  }
+  transform: translateY(8px);
 }
