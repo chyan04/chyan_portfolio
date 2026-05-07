@@ -579,16 +579,17 @@ function App() {
 
           {/* 프로젝트 카드 */}
           <div className="project-card">
+            <a
+              href="https://chyan04.github.io/my-portfolio/#"
+              target="_blank"
+              className="projectlist-portfolio"
+            >
 
             {/* 프로젝트 이미지 */}
             <div className="project-image"></div>
-
             <h3>Portfolio Website</h3>
-
             <p>
-
               React와 Vite를 기반으로 제작한 개인 포트폴리오 웹사이트입니다.
-
             </p>
 
 
@@ -596,20 +597,21 @@ function App() {
             <div className="project-tags">
 
               <span>React</span>
-
               <span>CSS</span>
-
               <span>Vite</span>
 
             </div>
-
-          </div>
-
-
+          </a>
+        </div>
 
           {/* 프로젝트 카드 */}
           <div className="project-card">
-
+            <a
+              href="https://www.youtube.com/watch?v=hwaIeE9Tnis"
+              target="_blank"
+              className="projectlist-wc"
+            >
+            
             {/* 프로젝트 이미지 */}
             <div className="project-image"></div>
 
@@ -630,8 +632,10 @@ function App() {
               <span>Platform</span>
 
               <span>Gun Action</span>
+              <span>Team</span>
 
             </div>
+            </a>
 
           </div>
 
