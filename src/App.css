@@ -1,452 +1,971 @@
-/* ============================= */
-/* Layout                        */
-/* ============================= */
+/* ========================================
+   Pretendard 폰트 적용
+   ======================================== */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
+
+/* ========================================
+   전체 기본 설정
+   ======================================== */
+* {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   사이트 기본 색상 변수
+   ======================================== */
+:root {
+
+  --bg-color: #050816;
+
+  --card-color: #111827;
+
+  --main-color: #00FF00;
+
+  --text-color: #f8fafc;
+
+  --sub-text-color: #94a3b8;
+}
+
+
+/* ========================================
+   body 기본 스타일
+   ======================================== */
+body {
+
+  background-color: var(--bg-color);
+
+  color: var(--text-color);
+
+  font-family: 'Pretendard', sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+/* ========================================
+   부드러운 스크롤
+   ======================================== */
+html {
+
+  scroll-behavior: smooth;
+}
+
+
+/* ========================================
+   전체 컨테이너
+   ======================================== */
 .container {
-  max-width: var(--max-width);
+
+  width: 90%;
+
+  max-width: 1200px;
+
   margin: 0 auto;
-  padding: 0 24px;
+
+  position: relative;
+
+  z-index: 2;
 }
 
-main {
-  flex: 1;
-  padding: 64px 0 96px;
+
+/* ========================================
+   배경 Glow 효과
+   ======================================== */
+.background-glow {
+
+  position: fixed;
+
+  top: -200px;
+
+  right: -200px;
+
+  width: 500px;
+
+  height: 500px;
+
+  background: #00FF00;
+
+  opacity: 0.08;
+
+  filter: blur(120px);
+
+  z-index: 1;
 }
 
-/* ============================= */
-/* Header                        */
-/* ============================= */
 
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(10, 10, 10, 0.7);
-  backdrop-filter: saturate(180%) blur(12px);
-  -webkit-backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-
-.header-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 16px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-family: var(--font-mono);
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-strong);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.logo::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 12px var(--accent);
-}
-
-nav {
-  display: flex;
-  gap: 4px;
-}
-
-nav a {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-muted);
-  padding: 8px 12px;
-  border-radius: var(--radius-sm);
-  transition: all 0.2s ease;
-}
-
-nav a:hover {
-  color: var(--text-strong);
-  background: var(--bg-card);
-}
-
-/* ============================= */
-/* Section                       */
-/* ============================= */
-
-section {
-  padding: 56px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-section:last-child {
-  border-bottom: none;
-}
-
-.section-label {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.section-label::before {
-  content: '//';
-  opacity: 0.6;
-}
-
-.section-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-strong);
-  margin-bottom: 32px;
-  letter-spacing: -0.03em;
-}
-
-/* ============================= */
-/* Hero / About                  */
-/* ============================= */
-
+/* ========================================
+   HERO 영역
+   ======================================== */
 .hero {
-  padding: 80px 0 56px;
-  border-bottom: 1px solid var(--border);
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 60px;
 }
 
-.hero-greet {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  color: var(--accent);
-  margin-bottom: 16px;
+
+/* 왼쪽 소개 영역 */
+.hero-left {
+
+  flex: 1;
 }
 
-.hero-name {
-  font-size: clamp(40px, 6vw, 64px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  color: var(--text-strong);
-  margin-bottom: 12px;
-}
 
-.hero-role {
-  font-size: clamp(24px, 3.5vw, 36px);
-  font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: -0.02em;
+/* 작은 소개 문장 */
+.hero-subtitle {
+
+  color: var(--main-color);
+
+  letter-spacing: 4px;
+
   margin-bottom: 24px;
+
+  font-size: 14px;
 }
 
-.hero-role .accent {
-  color: var(--accent);
-}
 
-.hero-desc {
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--text);
-  max-width: 620px;
+/* 메인 제목 */
+.hero h1 {
+
+  font-size: 84px;
+
+  line-height: 1.1;
+
   margin-bottom: 32px;
 }
 
-.hero-cta {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+
+/* 강조 색상 */
+.highlight {
+
+  color: var(--main-color);
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 500;
-  padding: 10px 18px;
-  border-radius: var(--radius-sm);
-  transition: all 0.2s ease;
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-  color: var(--text-strong);
-}
 
-.btn:hover {
-  border-color: var(--border-hover);
-  background: var(--bg-elevated);
-  transform: translateY(-1px);
-}
+/* 자기소개 */
+.hero-description {
 
-.btn-primary {
-  background: var(--accent);
-  color: #0a0a0a;
-  border-color: var(--accent);
-}
+  color: var(--sub-text-color);
 
-.btn-primary:hover {
-  background: var(--accent-hover);
-  border-color: var(--accent-hover);
-  color: #0a0a0a;
-}
-
-/* About paragraphs */
-.about-text p {
-  font-size: 16px;
   line-height: 1.8;
-  margin-bottom: 16px;
-  color: var(--text);
-  max-width: 680px;
+
+  max-width: 650px;
+
+  margin-bottom: 40px;
 }
 
-.about-text p:last-child {
-  margin-bottom: 0;
-}
 
-.about-text strong {
-  color: var(--text-strong);
-  font-weight: 600;
-}
+/* 버튼 영역 */
+.hero-buttons {
 
-/* ============================= */
-/* Skills                        */
-/* ============================= */
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 12px;
-}
-
-.skill {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 16px 18px;
-  transition: all 0.2s ease;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
 
-.skill:hover {
-  border-color: var(--accent-border);
-  background: var(--bg-elevated);
-  transform: translateY(-2px);
-}
-
-.skill-name {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-strong);
-}
-
-.skill-desc {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-/* ============================= */
-/* Projects                      */
-/* ============================= */
-
-.projects-grid {
-  display: flex;
-  flex-direction: column;
   gap: 16px;
 }
 
-.project-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
-  transition: all 0.25s ease;
+
+/* 공통 버튼 */
+.hero-buttons a {
+
+  text-decoration: none;
+
+  padding: 16px 28px;
+
+  border-radius: 12px;
+
+  transition: 0.3s;
+
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
 
-.project-card:hover {
-  border-color: var(--border-hover);
-  background: var(--bg-elevated);
-  transform: translateY(-2px);
-}
+  align-items: center;
 
-.project-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.project-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-strong);
-  letter-spacing: -0.01em;
-}
-
-.project-status {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  border: 1px solid var(--accent-border);
-  white-space: nowrap;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.project-status.planned {
-  background: rgba(161, 161, 170, 0.08);
-  color: var(--text-muted);
-  border-color: var(--border);
-}
-
-.project-desc {
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--text);
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 4px;
-}
-
-.project-tag {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--text-muted);
-  padding: 3px 8px;
-  border-radius: 4px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-}
-
-/* ============================= */
-/* Contact                       */
-/* ============================= */
-
-.contact-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contact-text {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--text);
-}
-
-.contact-links {
-  display: flex;
-  flex-wrap: wrap;
   gap: 10px;
 }
 
-.contact-link {
-  display: inline-flex;
+
+/* 메인 버튼 */
+.primary-button {
+
+  background-color: var(--main-color);
+
+  color: black;
+
+  font-weight: bold;
+}
+
+
+/* 메인 버튼 hover */
+.primary-button:hover {
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.3);
+}
+
+
+/* 보조 버튼 */
+.secondary-button {
+
+  border: 1px solid #334155;
+
+  color: white;
+}
+
+
+/* 보조 버튼 hover */
+.secondary-button:hover {
+
+  border-color: var(--main-color);
+
+  color: var(--main-color);
+}
+
+
+/* ========================================
+   오른쪽 React 영역
+   ======================================== */
+.hero-right {
+
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+
+/* React 원형 */
+.react-circle {
+
+  width: 320px;
+
+  height: 320px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 255, 0, 0.05);
+
+  border: 1px solid rgba(0, 255, 0, 0.2);
+
+  display: flex;
+
+  justify-content: center;
+
   align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--text-strong);
-  padding: 10px 16px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  transition: all 0.2s ease;
+
+  box-shadow: 0 0 80px rgba(0, 255, 0, 0.15);
 }
 
-.contact-link:hover {
-  border-color: var(--accent-border);
-  color: var(--accent);
-  transform: translateY(-1px);
+
+/* React 아이콘 */
+.react-icon {
+
+  font-size: 140px;
+
+  color: var(--main-color);
 }
 
-.contact-link .arrow {
-  transition: transform 0.2s ease;
+
+/* ========================================
+   공통 Section
+   ======================================== */
+.section {
+
+  margin-bottom: 140px;
 }
 
-.contact-link:hover .arrow {
-  transform: translate(2px, -2px);
+
+/* Section 제목 */
+.section h2 {
+
+  font-size: 42px;
+
+  margin-bottom: 32px;
+
+  color: var(--main-color);
 }
 
-/* ============================= */
-/* Footer                        */
-/* ============================= */
 
-.footer {
-  border-top: 1px solid var(--border);
-  padding: 24px 0;
+/* 공통 카드 */
+.card {
+
+  background-color: var(--card-color);
+
+  border: 1px solid #1e293b;
+
+  padding: 36px;
+
+  border-radius: 20px;
+
+  line-height: 1.8;
+}
+
+
+/* 카드 문장 */
+.card p {
+
+  color: var(--sub-text-color);
+
+  margin-bottom: 16px;
+}
+
+
+/* ========================================
+   기술 스택 Grid
+   ======================================== */
+.skills-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+  gap: 20px;
+}
+
+
+/* 기술 카드 */
+.skill-card {
+
+  background-color: var(--card-color);
+
+  padding: 24px;
+
+  border-radius: 18px;
+
+  border: 1px solid #1e293b;
+
+  transition: 0.3s;
+
   text-align: center;
 }
 
-.footer p {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--text-muted);
+
+/* 기술 카드 hover */
+.skill-card:hover {
+
+  transform: translateY(-6px);
+
+  border-color: var(--main-color);
+
+  color: var(--main-color);
 }
 
-/* ============================= */
-/* Responsive                    */
-/* ============================= */
 
-@media (max-width: 640px) {
-  .header-inner {
-    padding: 14px 20px;
-  }
+/* ========================================
+   프로젝트 Grid
+   ======================================== */
+.project-grid {
 
-  nav a {
-    padding: 6px 8px;
-    font-size: 12px;
-  }
+  display: grid;
 
-  main {
-    padding: 32px 0 64px;
-  }
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
-  section {
-    padding: 40px 0;
-  }
+  gap: 24px;
+}
+
+
+/* 프로젝트 카드 */
+.project-card {
+
+  background-color: var(--card-color);
+
+  border: 1px solid #1e293b;
+
+  padding: 32px;
+
+  border-radius: 20px;
+
+  transition: 0.3s;
+}
+
+
+/* 프로젝트 카드 제목 */
+.project-card h3 {
+
+  margin-bottom: 20px;
+}
+
+
+/* 프로젝트 카드 설명 */
+.project-card p {
+
+  color: var(--sub-text-color);
+
+  line-height: 1.7;
+}
+
+
+/* 프로젝트 카드 hover */
+.project-card:hover {
+
+  transform: translateY(-6px);
+
+  border-color: var(--main-color);
+
+  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.12);
+}
+
+
+/* ========================================
+   하단 화살표 아이콘
+   ======================================== */
+.scroll-icon {
+
+  text-align: center;
+
+  font-size: 28px;
+
+  color: var(--main-color);
+
+  margin-bottom: 40px;
+}
+
+
+/* ========================================
+   모바일 반응형
+   ======================================== */
+@media (max-width: 900px) {
 
   .hero {
-    padding: 56px 0 40px;
-  }
 
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-header {
     flex-direction: column;
-    align-items: flex-start;
+
+    justify-content: center;
+
+    text-align: center;
   }
 
-  .contact-card {
-    padding: 24px;
+  .hero h1 {
+
+    font-size: 58px;
+  }
+
+  .hero-description {
+
+    margin: 0 auto 40px;
+  }
+
+  .hero-buttons {
+
+    justify-content: center;
+  }
+
+  .react-circle {
+
+    width: 240px;
+
+    height: 240px;
+  }
+
+  .react-icon {
+
+    font-size: 100px;
+  }
+}
+
+/* ========================================
+   Grid 배경 효과
+   ======================================== */
+.grid-background {
+
+  position: fixed;
+
+  width: 100%;
+
+  height: 100%;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+
+  z-index: -2;
+}
+
+
+/* ========================================
+   Navbar
+   ======================================== */
+.navbar {
+
+  position: sticky;
+
+  top: 0;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 24px 0;
+
+  backdrop-filter: blur(10px);
+
+  z-index: 100;
+}
+
+
+/* 로고 */
+.logo {
+
+  font-size: 24px;
+
+  font-weight: bold;
+
+  color: var(--main-color);
+
+  letter-spacing: 3px;
+}
+
+
+/* 메뉴 영역 */
+.nav-links {
+
+  display: flex;
+
+  gap: 28px;
+}
+
+
+/* 메뉴 링크 */
+.nav-links a {
+
+  color: white;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+
+/* 메뉴 hover */
+.nav-links a:hover {
+
+  color: var(--main-color);
+}
+
+
+/* ========================================
+   Section 등장 느낌
+   ======================================== */
+.fade-section {
+
+  animation: fadeUp 1s ease;
+}
+
+
+/* 등장 애니메이션 */
+@keyframes fadeUp {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(40px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* ========================================
+   Hero 제목 Glow 효과
+   ======================================== */
+.hero h1 {
+
+  text-shadow:
+    0 0 10px rgba(0,255,0,0.2),
+    0 0 30px rgba(0,255,0,0.1);
+}
+
+
+/* ========================================
+   카드 hover 강화
+   ======================================== */
+.card:hover,
+.project-card:hover,
+.skill-card:hover {
+
+  box-shadow:
+    0 0 20px rgba(0,255,0,0.1),
+    0 0 40px rgba(0,255,0,0.05);
+}
+
+
+/* ========================================
+   React 아이콘 회전 애니메이션
+   ======================================== */
+.react-icon {
+
+  animation: rotateReact 12s linear infinite;
+}
+
+
+/* 회전 애니메이션 */
+@keyframes rotateReact {
+
+  from {
+
+    transform: rotate(0deg);
+  }
+
+  to {
+
+    transform: rotate(360deg);
+  }
+}
+
+
+/* ========================================
+   모바일 Navbar
+   ======================================== */
+@media (max-width: 768px) {
+
+  .navbar {
+
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .nav-links {
+
+    gap: 16px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+}
+/* ========================================
+   Hero 버튼 아이콘
+   ======================================== */
+.primary-button svg {
+
+  transition: 0.3s;
+}
+
+
+/* 버튼 hover 시 화살표 이동 */
+.primary-button:hover svg {
+
+  transform: translateX(4px);
+}
+
+
+/* ========================================
+   Hero 영역 부드러운 등장
+   ======================================== */
+.hero-left {
+
+  animation: heroFade 1.2s ease;
+}
+
+
+/* Hero 등장 애니메이션 */
+@keyframes heroFade {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(30px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* ========================================
+   React Circle floating 효과
+   ======================================== */
+.react-circle {
+
+  animation:
+    floating 4s ease-in-out infinite;
+}
+
+
+/* 위아래 움직임 */
+@keyframes floating {
+
+  0% {
+
+    transform: translateY(0px);
+  }
+
+  50% {
+
+    transform: translateY(-18px);
+  }
+
+  100% {
+
+    transform: translateY(0px);
+  }
+}
+
+
+/* ========================================
+   프로젝트 이미지 영역
+   ======================================== */
+.project-image {
+
+  width: 100%;
+
+  height: 180px;
+
+  border-radius: 16px;
+
+  margin-bottom: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,255,0,0.2),
+      rgba(0,255,0,0.02)
+    );
+
+  border: 1px solid rgba(0,255,0,0.1);
+}
+
+
+/* ========================================
+   프로젝트 기술 태그
+   ======================================== */
+.project-tags {
+
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 24px;
+
+  flex-wrap: wrap;
+}
+
+
+/* 태그 스타일 */
+.project-tags span {
+
+  background: rgba(255,255,255,0.05);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: 14px;
+
+  color: var(--sub-text-color);
+}
+
+
+/* ========================================
+   Hero 제목 Gradient 효과
+   ======================================== */
+.hero h1 {
+
+  background:
+    linear-gradient(
+      to right,
+      white,
+      #00FF00
+    );
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* ========================================
+   카드 hover 강화
+   ======================================== */
+.project-card:hover {
+
+  transform:
+    translateY(-10px)
+    scale(1.02);
+
+  box-shadow:
+    0 0 30px rgba(0,255,0,0.12),
+    0 0 60px rgba(0,255,0,0.06);
+}
+
+
+/* ========================================
+   Skill 카드 hover 강화
+   ======================================== */
+.skill-card:hover {
+
+  transform:
+    translateY(-8px)
+    scale(1.03);
+}
+
+
+/* ========================================
+   Navbar blur 강화
+   ======================================== */
+.navbar {
+
+  background:
+    rgba(5,8,22,0.5);
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.05);
+}
+/* ========================================
+   마우스 Glow 효과
+   ======================================== */
+.mouse-glow {
+
+  position: fixed;
+
+  width: 300px;
+
+  height: 300px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,255,0,0.12),
+      transparent 70%
+    );
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 0;
+}
+
+
+/* ========================================
+   Hero 영역 강화
+   ======================================== */
+.hero {
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* ========================================
+   Hero 제목 강화
+   ======================================== */
+.hero h1 {
+
+  font-size: 96px;
+
+  font-weight: 800;
+
+  letter-spacing: -3px;
+}
+
+
+/* ========================================
+   Hero 설명 강화
+   ======================================== */
+.hero-description {
+
+  font-size: 18px;
+}
+
+
+/* ========================================
+   카드 Blur 효과
+   ======================================== */
+.card,
+.project-card,
+.skill-card {
+
+  backdrop-filter: blur(12px);
+
+  background:
+    rgba(17,24,39,0.7);
+}
+
+
+/* ========================================
+   카드 hover 강화
+   ======================================== */
+.card:hover,
+.project-card:hover,
+.skill-card:hover {
+
+  border-color: rgba(0,255,0,0.5);
+}
+
+
+/* ========================================
+   Navbar 고급화
+   ======================================== */
+.navbar {
+
+  backdrop-filter: blur(16px);
+
+  background:
+    rgba(5,8,22,0.65);
+}
+
+
+/* ========================================
+   부드러운 transition
+   ======================================== */
+* {
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* ========================================
+   모바일 Hero 크기 조정
+   ======================================== */
+@media (max-width: 768px) {
+
+  .hero h1 {
+
+    font-size: 64px;
+  }
+
+  .mouse-glow {
+
+    width: 180px;
+
+    height: 180px;
   }
 }
