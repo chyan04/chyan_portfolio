@@ -936,28 +936,55 @@ body {
 }
 
 
-/* 프로젝트 이미지 */
+/* ========================================
+   프로젝트 이미지 영역
+======================================== */
 .project-image {
 
   width: 100%;
 
-  height: 180px;
+  height: 220px;
 
   border-radius: 18px;
 
+  overflow: hidden;
+
+  position: relative;
+
   margin-bottom: 24px;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(0,255,0,0.2),
-      rgba(0,255,0,0.03)
-    );
-
   border:
-    1px solid rgba(0,255,0,0.1);
+    1px solid rgba(255,255,255,0.08);
+
+  background:
+    rgba(255,255,255,0.03);
 }
 
+
+/* ========================================
+   실제 이미지
+======================================== */
+.project-image img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.4s ease;
+}
+
+
+/* ========================================
+   hover 확대 효과
+======================================== */
+.project-card:hover .project-image img {
+
+  transform: scale(1.05);
+}
 
 /* 제목 */
 .project-card h3 {

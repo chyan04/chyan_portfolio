@@ -745,6 +745,10 @@ function App() {
 
             {/* 프로젝트 이미지 */}
             <div className="project-image"></div>
+          <img
+            src="/chyan_portfolio/images/portfolio.png"
+            alt="Weapon Challenger"
+          />
             <h3>Portfolio Website</h3>
             <p>
               React와 Vite를 기반으로 제작한 개인 포트폴리오 웹사이트입니다.
@@ -771,8 +775,14 @@ function App() {
             >
             
             {/* 프로젝트 이미지 */}
-            <div className="project-image"></div>
+        <div className="project-image">
 
+          <img
+            src="/chyan_portfolio/images/weapon.png"
+            alt="Weapon Challenger"
+          />
+
+        </div>
             <h3>Weapon Challenger</h3>
 
             <p>
