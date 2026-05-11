@@ -738,7 +738,7 @@ function App() {
           {/* 프로젝트 카드 */}
           <div className="project-card">
             <a
-              href="https://chyan04.github.io/my-portfolio/#"
+              href="https://chyan04.github.io/chyan_portfolio/"
               target="_blank"
               className="projectlist-portfolio"
             >
@@ -785,11 +785,14 @@ function App() {
 
               <span>Unity 6</span>
 
+              <span>C#</span>
+
               <span>2D</span>
 
               <span>Platform</span>
 
               <span>Gun Action</span>
+
               <span>Team</span>
 
             </div>
@@ -798,6 +801,43 @@ function App() {
           </div>
 
         </div>
+
+          <div className="project-card">
+            <a
+              href="https://github.com/chyan04/Spring-MVC"
+              target="_blank"
+              className="projectlist-wc"
+            >
+            
+            {/* 프로젝트 이미지 */}
+            <div className="project-image"></div>
+
+            <h3>Spring Homepage</h3>
+
+            <p>
+              Java · Spring boot 기반으로 제작된 홈페이지 입니다.
+            </p>
+
+
+            {/* 기술 태그 */}
+            <div className="project-tags">
+
+              <span>HTML</span>
+
+              <span>Java</span>
+
+              <span>Spring boot</span>
+
+              <span>CSS</span>
+
+              <span>JavaScript</span>
+
+              <span>mySQL</span>
+
+            </div>
+            </a>
+
+          </div>
 
       </section>
 

@@ -5,5 +5,5 @@ export default defineConfig({
 
   plugins: [react()],
 
-  base: '/my-portfolio/',
+  base: '/chyan_portfolio/',
 })
