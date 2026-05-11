@@ -618,292 +618,69 @@ body {
   margin-bottom: 16px;
 }
 
-/* ========================================
-   Skills
-======================================== */
-
-/* 카테고리 간격 */
-.skills-category {
-
-  margin-bottom: 60px;
-}
-
-
-/* 카테고리 제목 */
-.skills-category h3 {
-
-  font-size: 1.5rem;
-
-  margin-bottom: 28px;
-
-  color: #00FF00;
-
-  letter-spacing: 1px;
-}
-
-
-/* 카드 */
-.skill-card {
-
-  background:
-    rgba(255,255,255,0.03);
-
-  border:
-    1px solid rgba(255,255,255,0.08);
-
-  border-radius: 24px;
-
-  padding: 32px;
-
-  min-height: 180px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 16px;
-
-  transition: 0.3s ease;
-
-  backdrop-filter: blur(10px);
-}
-
-
-/* hover 광택 효과 */
-.skill-card::before {
-
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(0,255,0,0.12),
-      transparent
-    );
-
-  opacity: 0;
-
-  transition: 0.4s ease;
-}
-
-
-/* hover */
-.skill-card:hover::before {
-
-  opacity: 1;
-}
-
-
-/* 아이콘 */
-.skill-icon {
-
-  font-size: 3.4rem;
-
-  transition: 0.35s ease;
-}
-
-
-/* hover */
-.skill-card:hover .skill-icon {
-
-  transform:
-    scale(1.15)
-    rotate(4deg);
-
-  filter:
-    drop-shadow(0 0 18px currentColor);
-}
-
-
-/* 텍스트 */
-.skill-card span {
-
-  font-size: 1rem;
-
-  font-weight: 600;
-
-  letter-spacing: 0.5px;
-}
-
 
 /* ========================================
-   기술별 색상
-======================================== */
-
-.react { color: #61dafb; }
-
-.html { color: #e34f26; }
-
-.css { color: #1572b6; }
-
-.js { color: #f7df1e; }
-
-.jsp { color: #ff9800; }
-
-.c { color: #00599c; }
-
-.cpp { color: #004482; }
-
-.cs { color: #9b4f96; }
-
-.java { color: #f89820; }
-
-.spring { color: #6db33f; }
-
-.python { color: #3776ab; }
-
-.node { color: #68a063; }
-
-.mysql { color: #00758f; }
-
-.mssql { color: #cc2927; }
-
-.ibm { color: #00a6fb; }
-
-.github { color: #ffffff; }
-
-.gitlab { color: #fc6d26; }
-
-.unity { color: #ffffff; }
-
-
-/* ========================================
-   Skills Grid
+   기술 Grid
 ======================================== */
 .skills-grid {
 
   display: grid;
 
-  /* 기본 4칸 배치 */
   grid-template-columns:
-    repeat(4, 1fr);
+    repeat(auto-fit, minmax(180px, 1fr));
 
-  gap: 24px;
-
-  width: 100%;
+  gap: 20px;
 }
 
 
-/* ========================================
-   태블릿
-======================================== */
-@media (max-width: 1100px) {
+/* 기술 카드 */
+.skill-card {
 
-  .skills-grid {
+  background: var(--card-color);
 
-    grid-template-columns:
-      repeat(3, 1fr);
-  }
-}
+  border: 1px solid #1e293b;
 
+  border-radius: 20px;
 
-/* ========================================
-   모바일
-======================================== */
-@media (max-width: 768px) {
+  padding: 24px;
 
-  .skills-grid {
-
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-}
-
-
-/* ========================================
-   초소형 모바일
-======================================== */
-@media (max-width: 480px) {
-
-  .skills-grid {
-
-    grid-template-columns:
-      1fr;
-  }
-}
-/* ========================================
-   Main Skills
-======================================== */
-.main-skills {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  gap: 28px;
-
-  margin-bottom: 60px;
-}
-
-
-/* 메인 카드 */
-.main-skill-card {
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(0,255,0,0.12),
-      rgba(255,255,255,0.03)
-    );
-
-  border:
-    1px solid rgba(0,255,0,0.3);
-
-  border-radius: 28px;
-
-  padding: 40px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 18px;
-
-  transition: 0.35s ease;
+  text-align: center;
 
   backdrop-filter: blur(12px);
+
+  transition: 0.3s ease;
 }
 
 
 /* hover */
-.main-skill-card:hover {
+.skill-card:hover {
 
   transform:
-    translateY(-10px)
+    translateY(-8px)
     scale(1.03);
 
+  border-color: var(--main-color);
+
+  color: var(--main-color);
+
   box-shadow:
-    0 0 40px rgba(0,255,0,0.2);
+    0 0 30px rgba(0,255,0,0.08);
 }
 
 
-/* 아이콘 */
-.main-skill-icon {
+/* ========================================
+   프로젝트 Grid
+======================================== */
+.project-grid {
 
-  font-size: 4rem;
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 28px;
 }
 
-
-/* 텍스트 */
-.main-skill-card span {
-
-  font-size: 1.1rem;
-
-  font-weight: 600;
-}
 
 /* 프로젝트 카드 */
 .project-card {
