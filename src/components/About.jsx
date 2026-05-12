@@ -1,38 +1,147 @@
+import { useState } from 'react'
+
+
 function About() {
+
+  // ========================================
+  // 현재 복사된 카드 상태
+  // ========================================
+  const [copied, setCopied] = useState("")
+
+
+  // ========================================
+  // 복사 함수
+  // ========================================
+  const handleCopy = (type, text, message) => {
+
+    // 클립보드 복사
+    navigator.clipboard.writeText(text)
+
+    // 메시지 표시
+    setCopied(type)
+
+
+    // 일정 시간 후 원래 상태 복구
+    setTimeout(() => {
+
+      setCopied("")
+
+    }, 1800)
+  }
+
+
+  // ========================================
+  // 카드 데이터
+  // ========================================
+  const aboutItems = [
+
+    {
+      title: "Email",
+
+      value: "chyan024@gmail.com",
+
+      message: "이메일이 복사되었습니다.",
+
+      type: "email"
+    },
+
+
+    {
+      title: "GitHub",
+
+      value: "github.com/chyan04",
+
+      message: "GitHub 주소가 복사되었습니다.",
+
+      type: "github"
+    },
+
+
+    {
+      title: "Birth",
+
+      value: "2002.03.23",
+
+      message: "생년월일이 복사되었습니다.",
+
+      type: "birth"
+    },
+
+
+    {
+      title: "Location",
+
+      value: "South Korea",
+
+      message: "위치가 복사되었습니다.",
+
+      type: "location"
+    }
+
+  ]
+
+
   return (
-    <section id="about" className="hero">
-      <p className="hero-greet">// Hi there, I&apos;m</p>
-      <h1 className="hero-name">CHAN</h1>
-      <h2 className="hero-role">
-        Frontend <span className="accent">Developer</span>
-      </h2>
 
-      <p className="hero-desc">
-        React 기반 프론트엔드 개발을 학습 중인 주니어 개발자입니다.
-        컴포넌트 구조와 상태 관리를 이해하고, 직접 만들고 부딪히며 성장하고 있습니다.
-      </p>
+    <section
+      id="about"
+      className="section fade-section"
+    >
 
-      <div className="hero-cta">
-        <a href="#projects" className="btn btn-primary">
-          View Projects →
-        </a>
-        <a href="#contact" className="btn">
-          Get in touch
-        </a>
+      {/* 제목 */}
+      <h2>About</h2>
+
+
+      {/* 카드 Grid */}
+      <div className="about-grid">
+
+        {
+          aboutItems.map((item, index) => (
+
+            <div
+              key={index}
+
+              className="about-card"
+
+              onClick={() =>
+                handleCopy(
+                  item.type,
+                  item.value,
+                  item.message
+                )
+              }
+            >
+
+              {/* 카드 제목 */}
+              <h3>
+                {item.title}
+              </h3>
+
+
+              {/* 카드 내용 */}
+              <p className="about-text">
+
+                {
+                  copied === item.type
+
+                    ? item.message
+
+                    : item.value
+                }
+
+              </p>
+
+            </div>
+
+          ))
+        }
+
       </div>
 
-      <div className="about-text" style={{ marginTop: '40px' }}>
-        <p>
-          현재는 <strong>포트폴리오 사이트</strong>를 직접 구현하며 웹 개발의 전체 흐름을
-          경험하고 있습니다.
-        </p>
-        <p>
-          앞으로 다양한 프로젝트를 통해 실무 역량을 강화하고, 사용자에게 가치있는 경험을
-          제공하는 개발자가 되는 것이 목표입니다.
-        </p>
-      </div>
     </section>
+
   )
 }
+
 
 export default About

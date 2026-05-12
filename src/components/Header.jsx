@@ -1,18 +1,35 @@
 function Header() {
-  return (
-    <header className="header">
-      <div className="header-inner">
-        <a href="#" className="logo">chan.dev</a>
 
-        <nav>
-          <a href="#about">about</a>
-          <a href="#skills">skills</a>
-          <a href="#projects">projects</a>
-          <a href="#contact">contact</a>
-        </nav>
+  return (
+
+    <nav className="navbar">
+
+      <div className="nav-container">
+
+        {/* Logo */}
+        <a href="#" className="logo">
+          CHYAN
+        </a>
+
+
+        {/* Navigation */}
+        <div className="nav-links">
+
+          <a href="#about">About</a>
+
+          <a href="#skills">Skills</a>
+
+          <a href="#projects">Projects</a>
+
+          <a href="#contact">Contact</a>
+
+        </div>
+
       </div>
-    </header>
+
+    </nav>
   )
 }
+
 
 export default Header
