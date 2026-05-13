@@ -661,6 +661,9 @@ body {
   transition: 0.3s ease;
 
   backdrop-filter: blur(10px);
+
+  position: relative;
+  overflow: hidden;
 }
 
 
@@ -683,6 +686,8 @@ body {
   opacity: 0;
 
   transition: 0.4s ease;
+
+  
 }
 
 
@@ -916,6 +921,17 @@ body {
   transition: 0.3s ease;
 }
 
+.project-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 32px;
+
+  margin-top: 40px;
+}
 
 /* hover */
 .project-card:hover {
@@ -1288,21 +1304,6 @@ body {
 
   transform: translateY(8px);
 }
-/* ========================================
-
-  height: 100%;
-
-  object-fit: cover;
-
-  transition: transform 0.4s ease;
-}
-
-
-.project-card:hover .project-image img {
-
-  transform: scale(1.05);
-}
-
 
 /* ========================================
    Project Meta

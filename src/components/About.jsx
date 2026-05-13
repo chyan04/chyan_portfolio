@@ -12,7 +12,7 @@ function About() {
   // ========================================
   // 복사 함수
   // ========================================
-  const handleCopy = (type, text, message) => {
+  const handleCopy = (type, text) => {
 
     // 클립보드 복사
     navigator.clipboard.writeText(text)
