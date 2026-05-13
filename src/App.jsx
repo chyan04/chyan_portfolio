@@ -34,11 +34,8 @@ function App() {
   return (
 
     <>
-
       <div className="grid-background"></div>
-
       <div className="background-glow"></div>
-
       <div className="mouse-glow"></div>
 
 
