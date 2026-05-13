@@ -948,46 +948,6 @@ body {
 
 
 /* ========================================
-   프로젝트 이미지 영역
-======================================== */
-.project-image {
-
-  width: 100%;
-
-  height: 220px;
-
-  border-radius: 18px;
-
-  overflow: hidden;
-
-  position: relative;
-
-  margin-bottom: 24px;
-
-  border:
-    1px solid rgba(255,255,255,0.08);
-
-  background:
-    rgba(255,255,255,0.03);
-}
-
-/* ========================================
-   실제 이미지
-======================================== */
-.project-image img {
-
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
-  display: block;
-
-  transition: transform 0.4s ease;
-}
-
-/* ========================================
    프로젝트 썸네일
 ======================================== */
 .project-thumbnail {
@@ -1008,10 +968,7 @@ body {
 /* ========================================
    hover 확대 효과
 ======================================== */
-.project-card:hover .project-image img {
 
-  transform: scale(1.05);
-}
 
 /* 제목 */
 .project-card h3 {
@@ -1378,13 +1335,4 @@ body {
   border-color: var(--main-color);
 
   color: var(--main-color);
-}
-
-
-/* ========================================
-   About Animation
-======================================== */
-.about-text {
-
-  transition: 0.35s ease;
 }
